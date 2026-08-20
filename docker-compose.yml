@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: pgvector-rag
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eu_legal_rag
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+
+volumes:
+  pgvector_data:
