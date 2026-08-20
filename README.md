@@ -95,3 +95,11 @@ Open `http://localhost:5173` in your browser.
 - **No orchestration**: The pipeline is a set of standalone scripts run manually. A real production version would use something like Airflow or Dagster to schedule re-runs as documents are updated.
 - **Legacy parser rough edges**: The regex-based parser for the older document format handles recital splitting imperfectly in a few edge cases — the structure is irregular enough that it's hard to get right without a proper grammar.
 - **No retrieval evaluation**: There's no automated way to measure whether the retrieved chunks are actually the right ones for a given question. Adding a small labeled eval set and tracking recall/precision would be the natural next step.
+
+## Roadmap
+
+- [ ] Host the app publicly (with API rate limiting to control costs)
+- [ ] Add more source documents beyond the current 6 EU legal instruments
+- [ ] Add Airflow/Dagster orchestration for scheduled reprocessing
+- [ ] Build an automated retrieval evaluation harness (test queries with expected sources)
+- [ ] Fix the legacy parser's recital-splitting edge case (see Known limitations)

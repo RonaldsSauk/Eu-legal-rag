@@ -48,6 +48,8 @@ def format_citation(celex_id: str, subdivision_id: str) -> str:
 
     return f"{doc_name}, {label}"
 
+# allow_origins=["*"] is fine for local dev.
+# Before any public hosting, restrict this to your actual frontend domain.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
