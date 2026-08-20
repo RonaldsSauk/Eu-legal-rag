@@ -39,7 +39,14 @@ pip install -r requirements.txt
 
 ### 2. Set up environment variables
 
-Create a `.env` file in the project root:
+Copy the example file and fill in your real key:
+
+```bash
+cp .env.example .env        # macOS/Linux
+copy .env.example .env      # Windows PowerShell
+```
+
+Then open `.env` and replace the placeholder:
 
 ```
 OPENAI_API_KEY=sk-...
@@ -49,12 +56,7 @@ PGVECTOR_PASSWORD=postgres
 ### 3. Start Postgres + pgvector
 
 ```bash
-docker run -d \
-  --name pgvector \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=eu_legal_rag \
-  -p 5433:5432 \
-  pgvector/pgvector:pg16
+docker compose up -d
 ```
 
 ### 4. Run the pipeline
